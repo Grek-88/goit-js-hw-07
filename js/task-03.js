@@ -33,7 +33,7 @@ const listImg = document.querySelector('#gallery');
 const elImg = images.map((el) => {
     const newLiEl = document.createElement('li');
     
-    newLiEl.insertAdjacentHTML("afterbegin", `<img src="${el.url}" alt="${el.alt}" width="150px" height="150px"/>`);
+    newLiEl.insertAdjacentHTML('beforeend', `<img src="${el.url}" alt="${el.alt}" width="150px" height="150px"/>`);
     return newLiEl;
 });
 
