@@ -18,7 +18,7 @@ inputCommon.addEventListener('blur', () => {
         inputCommon.classList.remove('valid');
     }
     
-    else if (inputCommon.value.length >= inputCommon.dataset.length)
+    else if (inputCommon.value.length === Number(inputCommon.dataset.length))
     {
         inputCommon.classList.add('valid');
         inputCommon.classList.remove('invalid');

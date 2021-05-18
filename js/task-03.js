@@ -30,13 +30,15 @@ const images = [
 
 const listImg = document.querySelector('#gallery');
 
-const elImg = images.map((el) => {
-    const newLiEl = document.createElement('li');
-    
-    newLiEl.insertAdjacentHTML('beforeend', `<img src="${el.url}" alt="${el.alt}" width="150px" height="150px"/>`);
-    return newLiEl;
+const elemsImg = images.map((el) => {
+
+  let stringCommon = '';
+  stringCommon += `<li><img src="${el.url}" alt="${el.alt}" width="150px" height="150px" /></li>`;
+
+  return stringCommon;
 });
 
-listImg.append(...elImg);
+listImg.insertAdjacentHTML('beforeend', elemsImg.join(' '));
 
 listImg.style.display = 'flex';
+listImg.style.justifyContent = 'space-between';
