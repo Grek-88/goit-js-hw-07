@@ -18,43 +18,42 @@
 const numderCreateBoxes = document.querySelector('[type="number"]');
 const btnCreate = document.querySelector('[data-action="render"]');
 const btnDestroy = document.querySelector('[data-action="destroy"]');
-const createBoxesEl = document.querySelector('#boxes');
+const createBoxesEl = document.querySelector("#boxes");
 
-btnCreate.addEventListener('click', createBoxes);
+btnCreate.addEventListener("click", createBoxes);
 
 const arr = [];
 
 function createBoxes(amount) {
-    amount = numderCreateBoxes.value; 
+  amount = numderCreateBoxes.value;
 
-    let sizeBox = 30;
-    for (let i = 0; i < amount; i += 1) {
-        const newElem = document.createElement('div');
-        newElem.style.width = `${sizeBox}px`;
-        newElem.style.height = `${sizeBox}px`;
-        
-        function getRandomRGB(max) {
-            return Math.floor(Math.random() * Math.floor(max));
-        }
-        
-        const red = getRandomRGB(255);
-        const green = getRandomRGB(255);
-        const blue = getRandomRGB(255);
-        
-        newElem.style.backgroundColor = `rgb(${red},${green},${blue})`;
-        
-        arr.push(newElem)
+  let sizeBox = 30;
+  for (let i = 0; i < amount; i += 1) {
+    const newElem = document.createElement("div");
+    newElem.style.width = `${sizeBox}px`;
+    newElem.style.height = `${sizeBox}px`;
 
-        sizeBox += 10;
+    function getRandomRGB(max) {
+      return Math.floor(Math.random() * Math.floor(max));
     }
- 
-    createBoxesEl.append(...arr);
-};
 
+    const red = getRandomRGB(255);
+    const green = getRandomRGB(255);
+    const blue = getRandomRGB(255);
 
-btnDestroy.addEventListener('click', destroyBoxes);
+    newElem.style.backgroundColor = `rgb(${red},${green},${blue})`;
+
+    arr.push(newElem);
+
+    sizeBox += 10;
+  }
+
+  createBoxesEl.append(...arr);
+}
+
+btnDestroy.addEventListener("click", destroyBoxes);
 
 function destroyBoxes() {
-    createBoxesEl.innerHTML = "";
-    document.location.reload()
-};
+  createBoxesEl.innerHTML = "";
+  document.location.reload();
+}
